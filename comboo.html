@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Combos Board | STYLE PLUZ Salon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { spBlue: '#00B4EB', spPink: '#E73A85', spDark: '#111111', spLight: '#FAFAFA' },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'], luxury: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .glass-nav { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); }
+        .combo-box { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid #f3f4f6; }
+        .combo-box:hover { transform: translateY(-4px); border-color: var(--card-glow); box-shadow: 0 16px 32px rgba(0,0,0,0.05); }
+        .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-spLight text-gray-800 antialiased pt-24">
+
+    <!-- Premium Light Navigation Frame -->
+    <nav class="glass-nav fixed w-full z-40 top-0 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex flex-col">
+                    <h1 class="font-luxury font-black text-2xl sm:text-3xl tracking-widest text-spDark"><span class="text-spBlue">STYLE</span> <span class="text-spPink">PLUZ</span></h1>
+                    <p class="text-[10px] text-gray-400 font-bold tracking-[0.3em] uppercase mt-0.5">Family Salon</p>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="font-semibold text-gray-600 hover:text-spPink transition">Home</a>
+                    <a href="servicestyle.html" class="font-semibold text-gray-600 hover:text-spPink transition">Services</a>
+                    <a href="combos.html" class="font-semibold text-spPink border-b-2 border-spPink pb-1 transition">Exclusive Combos</a>
+                    <a href="tel:09578303805" class="bg-spDark text-white px-6 py-2.5 rounded-full font-bold hover:bg-gray-800 transition shadow-md"><i class="fa-solid fa-phone mr-2 text-xs"></i> Book Now</a>
+                </div>
+                <div class="md:hidden flex items-center"><button id="mobileMenuBtn" class="text-spDark text-2xl"><i class="fa-solid fa-bars"></i></button></div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="px-4 py-4 space-y-2 flex flex-col">
+                <a href="index.html" class="text-gray-600 px-4 py-3 rounded-xl font-semibold">Home</a>
+                <a href="servicestyle.html" class="text-gray-600 px-4 py-3 rounded-xl font-semibold">Services</a>
+                <a href="combos.html" class="bg-pink-50 text-spPink px-4 py-3 rounded-xl font-semibold">Exclusive Combos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header layout -->
+    <header class="py-20 text-center relative overflow-hidden border-b border-gray-100 bg-white">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(231,58,133,0.02)_0,transparent_65%)]"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <span class="text-spBlue font-bold text-xs tracking-[0.3em] uppercase block mb-3">Unbeatable Value Signatures</span>
+            <h2 class="font-luxury font-black text-4xl sm:text-6xl text-spDark mb-4">Combo Pricing Menu</h2>
+            <div class="w-12 h-0.5 bg-gradient-to-r from-spBlue to-spPink mx-auto my-4"></div>
+            <p class="text-gray-500 max-w-md mx-auto text-xs sm:text-sm font-light">Direct pixel-perfect conversion breakdown from our salon outdoor board catalog profiles.</p>
+        </div>
+    </header>
+
+    <!-- Main Segment layout container grids -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-28">
+
+        <!-- ================= WOMENS CHANNELS (PINK HUD) ================= -->
+        <section class="reveal">
+            <div class="flex items-center space-x-4 mb-12 border-b border-gray-100 pb-4">
+                <div class="w-10 h-10 bg-pink-50 text-spPink rounded-xl flex items-center justify-center text-xl border border-pink-100"><i class="fa-solid fa-person-dress"></i></div>
+                <div>
+                    <h3 class="font-luxury font-black text-2xl sm:text-3xl text-spDark">Womens Salon Studio</h3>
+                    <p class="text-xs text-gray-500">Premium choices tailored down into parallel tier variations</p>
+                </div>
+            </div>
+
+            <div class="space-y-12">
+                <!-- COMBO 1 TIER (₹500) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-3 bg-gradient-to-br from-spPink to-pink-600 text-white p-6 rounded-3xl text-center shadow-md md:h-full flex flex-col justify-center min-h-[140px]">
+                        <span class="text-xs uppercase font-bold tracking-[0.2em] opacity-80 mb-1">Package Tier</span>
+                        <h4 class="font-luxury font-black text-3xl">COMBO 1</h4>
+                        <div class="text-2xl font-bold mt-2">₹500</div>
+                    </div>
+                    <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #E73A85">
+                            <div>
+                                <span class="text-[9px] font-bold text-spPink uppercase tracking-widest block mb-3">Variation Option A</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Detan Face & Neck</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Eyebrow Configuration</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Upperlip & Chin Mapping</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Forehead Cleansing</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Womens Combo 1 (A) - ₹500')" class="w-full bg-spDark hover:bg-spPink text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option A</button>
+                        </div>
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #E73A85">
+                            <div>
+                                <span class="text-[9px] font-bold text-spPink uppercase tracking-widest block mb-3">Variation Option B</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Melanin Detan Therapy</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Relaxing Feet Massage</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Precision Eyebrow Setup</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Womens Combo 1 (B) - ₹500')" class="w-full bg-spDark hover:bg-spPink text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option B</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMBO 2 TIER (₹800) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center border-t border-gray-100 pt-10">
+                    <div class="md:col-span-3 bg-gradient-to-br from-spPink to-pink-600 text-white p-6 rounded-3xl text-center shadow-md md:h-full flex flex-col justify-center min-h-[140px]">
+                        <span class="text-xs uppercase font-bold tracking-[0.2em] opacity-80 mb-1">Package Tier</span>
+                        <h4 class="font-luxury font-black text-3xl">COMBO 2</h4>
+                        <div class="text-2xl font-bold mt-2">₹800</div>
+                    </div>
+                    <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #E73A85">
+                            <div>
+                                <span class="text-[9px] font-bold text-spPink uppercase tracking-widest block mb-3">Variation Option A</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Stress Head Massage</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Detan Protection</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Eyebrow & Upperlip Line</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Chin & Forehead</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Womens Combo 2 (A) - ₹800')" class="w-full bg-spDark hover:bg-spPink text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option A</button>
+                        </div>
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #E73A85">
+                            <div>
+                                <span class="text-[9px] font-bold text-spPink uppercase tracking-widest block mb-3">Variation Option B</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Boutique Haircut Cuts</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Micro-Nourishing Hair Spa</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Eyebrow Framing</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Womens Combo 2 (B) - ₹800')" class="w-full bg-spDark hover:bg-spPink text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option B</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMBO 3 TIER (₹1000) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center border-t border-gray-100 pt-10">
+                    <div class="md:col-span-3 bg-gradient-to-br from-spPink to-pink-600 text-white p-6 rounded-3xl text-center shadow-md md:h-full flex flex-col justify-center min-h-[140px]">
+                        <span class="text-xs uppercase font-bold tracking-[0.2em] opacity-80 mb-1">Package Tier</span>
+                        <h4 class="font-luxury font-black text-3xl">COMBO 3</h4>
+                        <div class="text-2xl font-bold mt-2">₹1000</div>
+                    </div>
+                    <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #E73A85">
+                            <div>
+                                <span class="text-[9px] font-bold text-spPink uppercase tracking-widest block mb-3">Variation Option A</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Pore Clarifying Cleanup</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Deep Face & Neck Detan</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Eyebrow Threading</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Womens Combo 3 (A) - ₹1000')" class="w-full bg-spDark hover:bg-spPink text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option A</button>
+                        </div>
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #E73A85">
+                            <div>
+                                <span class="text-[9px] font-bold text-spPink uppercase tracking-widest block mb-3">Variation Option B</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Full Arms Hygienic Wax</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Half Leg Premium Wax</li>
+                                    <li><i class="fa-solid fa-circle-check text-spPink mr-2.5 text-[10px]"></i>Radiance Facial Cleanup</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Womens Combo 3 (B) - ₹1000')" class="w-full bg-spDark hover:bg-spPink text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option B</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= MENS CHANNELS (BLUE HUD) ================= -->
+        <section class="reveal">
+            <div class="flex items-center space-x-4 mb-12 border-b border-gray-100 pb-4">
+                <div class="w-10 h-10 bg-blue-50 text-spBlue rounded-xl flex items-center justify-center text-xl border border-blue-100"><i class="fa-solid fa-person"></i></div>
+                <div>
+                    <h3 class="font-luxury font-black text-2xl sm:text-3xl text-spDark">Mens Grooming Space</h3>
+                    <p class="text-xs text-gray-500">Executive sharp setups engineered with double choices</p>
+                </div>
+            </div>
+
+            <div class="space-y-12">
+                <!-- COMBO 1 TIER (₹500) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-3 bg-gradient-to-br from-spBlue to-blue-600 text-white p-6 rounded-3xl text-center shadow-lg md:h-full flex flex-col justify-center min-h-[140px]">
+                        <span class="text-xs uppercase font-bold tracking-[0.2em] opacity-80 mb-1">Package Tier</span>
+                        <h4 class="font-luxury font-black text-3xl">COMBO 1</h4>
+                        <div class="text-2xl font-bold mt-2">₹500</div>
+                    </div>
+                    <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #00B4EB">
+                            <div>
+                                <span class="text-[9px] font-bold text-spBlue uppercase tracking-widest block mb-3">Variation Option A</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Precision Hair Cut</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Beard Trim / Lining</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Skin Detan Pack</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Mens Combo 1 (A) - ₹500')" class="w-full bg-spDark hover:bg-spBlue text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option A</button>
+                        </div>
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #00B4EB">
+                            <div>
+                                <span class="text-[9px] font-bold text-spBlue uppercase tracking-widest block mb-3">Variation Option B</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Precision Hair Cut</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Beard Trim / Lining</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Therapeutic Head Massage</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Mens Combo 1 (B) - ₹500')" class="w-full bg-spDark hover:bg-spBlue text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option B</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMBO 2 TIER (₹800) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center border-t border-gray-100 pt-10">
+                    <div class="md:col-span-3 bg-gradient-to-br from-spBlue to-blue-600 text-white p-6 rounded-3xl text-center shadow-lg md:h-full flex flex-col justify-center min-h-[140px]">
+                        <span class="text-xs uppercase font-bold tracking-[0.2em] opacity-80 mb-1">Package Tier</span>
+                        <h4 class="font-luxury font-black text-3xl">COMBO 2</h4>
+                        <div class="text-2xl font-bold mt-2">₹800</div>
+                    </div>
+                    <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #00B4EB">
+                            <div>
+                                <span class="text-[9px] font-bold text-spBlue uppercase tracking-widest block mb-3">Variation Option A</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Precision Hair Cut</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Beard Trim / Lining</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Pore Purifying Cleanup</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Mens Combo 2 (A) - ₹800')" class="w-full bg-spDark hover:bg-spBlue text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option A</button>
+                        </div>
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #00B4EB">
+                            <div>
+                                <span class="text-[9px] font-bold text-spBlue uppercase tracking-widest block mb-3">Variation Option B</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Precision Hair Cut</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Beard Trim / Lining</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Restorative Hair Spa</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Mens Combo 2 (B) - ₹800')" class="w-full bg-spDark hover:bg-spBlue text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option B</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMBO 3 TIER (₹1000) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center border-t border-gray-100 pt-10">
+                    <div class="md:col-span-3 bg-gradient-to-br from-spBlue to-blue-600 text-white p-6 rounded-3xl text-center shadow-lg md:h-full flex flex-col justify-center min-h-[140px]">
+                        <span class="text-xs uppercase font-bold tracking-[0.2em] opacity-80 mb-1">Package Tier</span>
+                        <h4 class="font-luxury font-black text-3xl">COMBO 3</h4>
+                        <div class="text-2xl font-bold mt-2">₹1000</div>
+                    </div>
+                    <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #00B4EB">
+                            <div>
+                                <span class="text-[9px] font-bold text-spBlue uppercase tracking-widest block mb-3">Variation Option A</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Precision Hair Cut</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Beard Trim / Lining</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Custom Hair Coloring</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Skin Detan Pack</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Mens Combo 3 (A) - ₹1000')" class="w-full bg-spDark hover:bg-spBlue text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option A</button>
+                        </div>
+                        <div class="combo-box bg-white p-6 rounded-3xl flex flex-col justify-between" style="--card-glow: #00B4EB">
+                            <div>
+                                <span class="text-[9px] font-bold text-spBlue uppercase tracking-widest block mb-3">Variation Option B</span>
+                                <ul class="space-y-2.5 text-xs text-gray-600">
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Precision Hair Cut</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Beard Trim / Lining</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Dermal Facial Cleanup</li>
+                                    <li><i class="fa-solid fa-circle-check text-spBlue mr-2.5 text-[10px]"></i>Skin Detan Pack</li>
+                                </ul>
+                            </div>
+                            <button onclick="requestCombo('Mens Combo 3 (B) - ₹1000')" class="w-full bg-spDark hover:bg-spBlue text-white font-bold text-[11px] uppercase tracking-wider py-2.5 rounded-xl transition mt-6">Book Option B</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white text-gray-400 py-12 border-t border-gray-100 text-center text-xs tracking-wider">
+        <p>© 2026 STYLE PLUZ Premium Studio Board Configuration. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => { document.getElementById('mobileMenu').classList.toggle('hidden'); });
+
+        const launchObserver = () => {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('active'); } });
+            }, { threshold: 0.05 });
+            document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+        };
+
+        function requestCombo(comboName) {
+            const parsedText = encodeURIComponent(`Hello STYLE PLUZ Salon, I would love to book an appointment slot for the package deal: [ ${comboName} ]. Please verify current slot availability.`);
+            window.open(`https://wa.me/919578303805?text=${parsedText}`, '_blank');
+        }
+
+        window.addEventListener('DOMContentLoaded', launchObserver);
+    </script>
+</body>
+</html>
