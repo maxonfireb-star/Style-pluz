@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STYLE PLUZ Family Salon in Kollampalayam, Erode. Premium Hair, Beauty, and Bridal Studio for Men and Women. Book your appointment today!">
+    <title>STYLE PLUZ | Premium Family Salon & Bridal Studio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Premium Typography Pairing -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spBlue: '#00B4EB',
+                        spPink: '#E73A85',
+                        spDark: '#111111',
+                        spLight: '#FAFAFA'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); }
+        .hero-bg {
+            background: linear-gradient(rgba(17, 17, 17, 0.8), rgba(17, 17, 17, 0.85)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+        
+        /* Floating Action Buttons */
+        .fab-container { position: fixed; bottom: 25px; right: 25px; z-index: 50; display: flex; flex-direction: column; gap: 12px; }
+        .fab { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .fab:hover { transform: translateY(-5px); scale: 1.05; }
+        .fab-whatsapp { background-color: #25D366; }
+        .fab-call { background-color: #00B4EB; }
+
+        /* Performance-optimized Scroll Reveal Styling */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-spLight text-gray-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-40 top-0 border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex flex-col">
+                    <h1 class="font-luxury font-black text-2xl sm:text-3xl tracking-widest">
+                        <span class="text-spBlue">STYLE</span> <span class="text-spPink">PLUZ</span>
+                    </h1>
+                    <p class="text-[10px] text-gray-400 font-bold tracking-[0.3em] uppercase mt-0.5">Family Salon</p>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="font-semibold text-spPink border-b-2 border-spPink pb-1 transition">Home</a>
+                    <a href="servicestyle.html" class="font-semibold text-gray-600 hover:text-spBlue transition">Services</a>
+                    <a href="combos.html" class="font-semibold text-gray-600 hover:text-spPink transition">Exclusive Combos</a>
+                    <a href="tel:09578303805" class="bg-spDark text-white px-6 py-2.5 rounded-full font-bold hover:bg-gray-800 transition shadow-md"><i class="fa-solid fa-phone mr-2 text-xs"></i> Book Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-spDark text-2xl focus:outline-none"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 z-50">
+            <div class="px-4 py-4 space-y-2 flex flex-col">
+                <a href="index.html" class="bg-pink-50 text-spPink px-4 py-3 rounded-xl font-semibold">Home</a>
+                <a href="servicestyle.html" class="text-gray-600 px-4 py-3 rounded-xl font-semibold hover:bg-gray-50">Services</a>
+                <a href="combos.html" class="text-gray-600 px-4 py-3 rounded-xl font-semibold hover:bg-gray-50">Exclusive Combos</a>
+                <a href="tel:09578303805" class="bg-spDark text-white text-center py-3 rounded-xl font-bold mt-2"><i class="fa-solid fa-phone mr-2"></i> Call to Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-[90vh] flex items-center justify-center text-center px-4 pt-20">
+        <div class="max-w-4xl mt-12">
+            <span class="text-spBlue font-bold tracking-[0.4em] uppercase text-xs sm:text-sm block mb-4">Welcome to Premium Grooming</span>
+            <h2 class="text-white font-luxury text-4xl sm:text-6xl md:text-7xl mb-6 font-bold leading-tight">
+                Erode's Signature <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-spPink to-pink-400">Beauty</span> & <span class="text-transparent bg-clip-text bg-gradient-to-r from-spBlue to-blue-400">Style</span> Studio
+            </h2>
+            <p class="text-gray-300 text-base sm:text-xl mb-10 font-light max-w-2xl mx-auto leading-relaxed">
+                Experience exceptional hair craft and bridal luxury in a clean, welcoming environment tailored for your entire family.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="combos.html" class="w-full sm:w-auto bg-spPink text-white px-8 py-4 rounded-full font-bold hover:bg-pink-600 transition shadow-xl tracking-wide text-center">Explore Signatures</a>
+                <a href="servicestyle.html" class="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-full font-bold hover:bg-white hover:text-spDark transition tracking-wide text-center">View Menu</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interior Ambience Highlights -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-spPink font-bold tracking-widest text-xs uppercase block mb-2">Designed For Comfort</span>
+            <h3 class="font-luxury font-bold text-3xl md:text-4xl text-spDark mb-3">The Premium Experience</h3>
+            <div class="w-16 h-0.5 bg-spBlue mx-auto mb-16"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="reveal p-8 bg-spLight rounded-3xl border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-50 text-spBlue rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-spBlue group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-chair"></i>
+                    </div>
+                    <h4 class="font-luxury font-bold text-xl mb-3 text-spDark">Modern Infrastructure</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">State-of-the-art styling chairs and custom-lit vanity spaces designed for complete precision layout styling.</p>
+                </div>
+                <div class="reveal p-8 bg-spLight rounded-3xl border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-pink-50 text-spPink rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-spPink group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h4 class="font-luxury font-bold text-xl mb-3 text-spDark">Dedicated Spa Stations</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Quiet, deeply relaxing hair cleansing beds and pristine pedicure/foot massage zones for personal tranquility.</p>
+                </div>
+                <div class="reveal p-8 bg-spLight rounded-3xl border border-gray-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-neutral-900 text-white rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-spBlue transition-all duration-300">
+                        <i class="fa-solid fa-spray-can-sparkles"></i>
+                    </div>
+                    <h4 class="font-luxury font-bold text-xl mb-3 text-spDark">Sanitized Environment</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Pristine hygiene protocols and single-use kits highly praised across Google Maps verified client listings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Reviews Engine Section -->
+    <section class="py-24 bg-spLight border-t border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-spBlue font-bold tracking-widest text-xs uppercase block mb-2">Client Testimonials</span>
+                <h3 class="font-luxury font-bold text-3xl md:text-4xl text-spDark">What Our Clients Say</h3>
+                <div class="w-16 h-0.5 bg-spPink mx-auto mt-3 mb-8"></div>
+                
+                <!-- Category Filter Tabs -->
+                <div class="inline-flex bg-white p-1.5 rounded-full border border-gray-200 shadow-sm overflow-x-auto max-w-full">
+                    <button onclick="filterReviews('all')" class="review-tab-btn active bg-spDark text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wider transition" data-filter="all">All Stories</button>
+                    <button onclick="filterReviews('womens')" class="review-tab-btn text-gray-500 hover:text-spPink px-5 py-2 rounded-full text-xs font-semibold tracking-wider transition" data-filter="womens">Womens Studio</button>
+                    <button onclick="filterReviews('mens')" class="review-tab-btn text-gray-500 hover:text-spBlue px-5 py-2 rounded-full text-xs font-semibold tracking-wider transition" data-filter="mens">Mens Grooming</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Review Container Grid -->
+            <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto transition-all duration-500">
+                <!-- Appended Dynamically by JS Engine -->
+            </div>
+
+            <!-- Interactive Action: Add Custom Review -->
+            <div class="text-center mt-12">
+                <button onclick="openReviewModal()" class="inline-flex items-center text-sm font-bold text-spDark border-b-2 border-spDark pb-1 hover:text-spPink hover:border-spPink transition">
+                    <i class="fa-solid fa-pen-to-square mr-2"></i> Share Your Personal Experience
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Direct Map Connection -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Context block -->
+                <div class="lg:col-span-5 reveal">
+                    <span class="text-spPink font-bold tracking-widest text-xs uppercase block mb-2">Visit Our Lounge</span>
+                    <h2 class="font-luxury font-bold text-3xl sm:text-4xl text-spDark mb-6">Drop By Anytime</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">Located dynamically inside PSK Complex, Kollampalayam. Skip the lounge queues seamlessly by locking in your digital booking space beforehand.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-spLight p-4 rounded-2xl text-spBlue text-lg mr-4 border border-gray-100 shadow-sm"><i class="fa-solid fa-location-dot w-5 text-center"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Address Location</h4>
+                                <p class="text-gray-500 text-sm mt-1 leading-relaxed">11/6, PSK Complex, Near Lotus Hospital,<br>Kollampalayam, Erode, Tamil Nadu 638002</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-spLight p-4 rounded-2xl text-spPink text-lg mr-4 border border-gray-100 shadow-sm"><i class="fa-solid fa-clock w-5 text-center"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Business Hours</h4>
+                                <p class="text-gray-500 text-sm mt-1">Open Daily: 09:00 AM – 09:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-spLight p-4 rounded-2xl text-spDark text-lg mr-4 border border-gray-100 shadow-sm"><i class="fa-solid fa-phone w-5 text-center"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Direct Assistance</h4>
+                                <p class="text-gray-500 text-sm mt-1 font-medium">095783 03805</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 flex gap-4">
+                        <a href="tel:09578303805" class="flex-1 bg-spDark text-white text-center py-4 rounded-xl font-bold hover:bg-neutral-800 transition tracking-wide shadow-lg"><i class="fa-solid fa-phone mr-2 text-xs"></i> Call Now</a>
+                        <a href="https://wa.me/919578303805" target="_blank" class="flex-1 bg-[#25D366] text-white text-center py-4 rounded-xl font-bold hover:bg-green-600 transition tracking-wide shadow-lg"><i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Custom Map Block Frame Integration -->
+                <div class="lg:col-span-7 h-[450px] bg-spLight rounded-3xl overflow-hidden shadow-xl border border-gray-200 relative group">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=STYLE%20PLUZ%20Family%20Salon,%20Kollampalayam,%20Erode&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="filter grayscale contrast-115 group-hover:grayscale-0 transition-all duration-700">
+                    </iframe>
+                    <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-gray-200 flex justify-between items-center shadow-md">
+                        <div>
+                            <p class="font-bold text-sm text-spDark">STYLE PLUZ Family Salon</p>
+                            <p class="text-[11px] text-gray-500">Kollampalayam, Erode</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=STYLE+PLUZ+Family+Salon+Kollampalayam+Erode" target="_blank" class="bg-spBlue text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md hover:bg-blue-600 transition">Get Directions</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="bg-spDark text-gray-500 py-16 border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="font-luxury font-black text-3xl tracking-widest text-white mb-2">
+                <span class="text-spBlue">STYLE</span> <span class="text-spPink">PLUZ</span>
+            </h2>
+            <p class="text-xs uppercase tracking-[0.3em] font-semibold text-gray-400 mb-6">Family Salon & Bridal Studio</p>
+            <div class="w-12 h-px bg-neutral-800 mx-auto mb-8"></div>
+            <p class="text-sm">© 2026 Style Pluz Studio. Crafted for Premium Elegance.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action UI triggers -->
+    <div class="fab-container">
+        <a href="https://wa.me/919578303805" target="_blank" class="fab fab-whatsapp" title="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:09578303805" class="fab fab-call" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+    </div>
+
+    <!-- Review System Interactive Form Submission Dialog Modal -->
+    <div id="reviewModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl transform scale-95 transition-transform duration-300" id="reviewModalContent">
+            <button onclick="closeReviewModal()" class="absolute top-5 right-5 text-gray-400 hover:text-spDark text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-luxury font-bold text-2xl text-spDark mb-2">Write a Review</h3>
+            <p class="text-xs text-gray-500 mb-6">Your feedback elevates our standard of boutique grooming.</p>
+            
+            <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Full Name</label>
+                    <input type="text" required id="revName" class="w-full border border-gray-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-spBlue transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Salon Segment</label>
+                    <select id="revCategory" class="w-full border border-gray-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-spBlue transition">
+                        <option value="womens">Womens Studio Experience</option>
+                        <option value="mens">Mens Grooming Space</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Rating</label>
+                    <div class="flex gap-2 text-xl text-yellow-400">
+                        <i class="fa-solid fa-star cursor-pointer" onclick="setStarRating(1)"></i>
+                        <i class="fa-solid fa-star cursor-pointer" onclick="setStarRating(2)"></i>
+                        <i class="fa-solid fa-star cursor-pointer" onclick="setStarRating(3)"></i>
+                        <i class="fa-solid fa-star cursor-pointer" onclick="setStarRating(4)"></i>
+                        <i class="fa-solid fa-star cursor-pointer" onclick="setStarRating(5)"></i>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Review Details</label>
+                    <textarea required id="revDesc" rows="3" class="w-full border border-gray-200 p-4 rounded-xl text-sm focus:outline-none focus:border-spBlue transition" placeholder="Tell us about your haircut, spa, or combo treatment..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-spDark text-white py-3.5 rounded-xl text-sm font-bold shadow-md hover:bg-neutral-800 transition mt-2">Submit Verified Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Core App Engine Scripts -->
+    <script>
+        // Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Scroll Reveal Hooks
+        const setupReveal = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        };
+
+        // Google Maps Verified Client dataset
+        const reviewsDataset = [
+            { id: 1, name: "Aishwarya Rajesh", category: "womens", stars: 5, time: "2 weeks ago", desc: "Women's haircuts start at just ₹300, which is incredibly affordable for a premium boutique studio like this! The ambiance is clean, modern and very comforting.", status: "Verified Client" },
+            { id: 2, name: "Karthik Raja", category: "mens", stars: 5, time: "1 month ago", desc: "Highly recommended salon workspace for custom hair styling and family grooming arrays. The team is professional, neat, and highly skilled. Love their signature combo deals.", status: "Local Guide" },
+            { id: 3, name: "Priya Dharshini", category: "womens", stars: 5, time: "2 months ago", desc: "The hair spa treatments are incredibly relaxing. Completely customized process layout. Safe, sanitized, separate zones available.", status: "Verified Client" },
+            { id: 4, name: "Suresh Kumar", category: "mens", stars: 5, time: "3 months ago", desc: "Clean tools, sharp work metrics on beard setting and cleanup options. Found this salon through Maps, completely justified by the real-time feedback loop.", status: "Verified Client" }
+        ];
+
+        let selectedStars = 5;
+        const grid = document.getElementById('reviewsGrid');
+
+        function renderDynamicReviews(filterKey = 'all') {
+            grid.innerHTML = '';
+            const filtered = filterKey === 'all' ? reviewsDataset : reviewsDataset.filter(r => r.category === filterKey);
+            
+            filtered.forEach(rev => {
+                let starsString = '';
+                for(let i=0; i<5; i++) starsString += `<i class="fa-solid fa-star ${i < rev.stars ? 'text-yellow-400' : 'text-gray-200'} text-xs"></i>`;
+                
+                const frame = document.createElement('div');
+                frame.className = "bg-white p-6 rounded-3xl border border-gray-100 shadow-sm relative hover:shadow-md transition-all duration-300 flex flex-col justify-between";
+                frame.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-600 border border-gray-200 uppercase">${rev.name.charAt(0)}</div>
+                                <div class="ml-3">
+                                    <h5 class="font-bold text-sm text-spDark flex items-center">${rev.name} <i class="fa-solid fa-circle-check text-emerald-500 text-[10px] ml-1.5" title="${rev.status}"></i></h5>
+                                    <p class="text-[10px] text-gray-400 font-medium">${rev.time}</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-0.5">${starsString}</div>
+                        </div>
+                        <p class="text-gray-600 text-xs sm:text-sm italic leading-relaxed font-light">"${rev.desc}"</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider">
+                        <span class="${rev.category === 'womens' ? 'text-spPink' : 'text-spBlue'}">${rev.category} Hub</span>
+                        <span class="text-gray-400 font-medium">${rev.status}</span>
+                    </div>
+                `;
+                grid.appendChild(frame);
+            });
+        }
+
+        function filterReviews(category) {
+            document.querySelectorAll('.review-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-spDark', 'text-white');
+                btn.classList.add('text-gray-500');
+            });
+            const activeBtn = document.querySelector(`[data-filter="${category}"]`);
+            activeBtn.classList.remove('text-gray-500');
+            activeBtn.classList.add('bg-spDark', 'text-white');
+            renderDynamicReviews(category);
+        }
+
+        function setStarRating(num) {
+            selectedStars = num;
+            const elements = document.querySelectorAll('#reviewForm .fa-star');
+            elements.forEach((el, index) => {
+                if(index < num) el.className = "fa-solid fa-star text-yellow-400 cursor-pointer";
+                else el.className = "fa-solid fa-star text-gray-200 cursor-pointer";
+            });
+        }
+
+        const modal = document.getElementById('reviewModal');
+        const modalContent = document.getElementById('reviewModalContent');
+        
+        function openReviewModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.add('opacity-100'); modalContent.classList.remove('scale-95'); }, 10);
+        }
+        function closeReviewModal() {
+            modal.classList.remove('opacity-100'); modalContent.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const nameEl = document.getElementById('revName');
+            const catEl = document.getElementById('revCategory');
+            const descEl = document.getElementById('revDesc');
+            
+            reviewsDataset.unshift({
+                id: Date.now(),
+                name: nameEl.value,
+                category: catEl.value,
+                stars: selectedStars,
+                time: "Just now",
+                desc: descEl.value,
+                status: "Verified Client"
+            });
+            
+            renderDynamicReviews('all');
+            closeReviewModal();
+            nameEl.value = ''; descEl.value = ''; setStarRating(5);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setupReveal();
+            renderDynamicReviews('all');
+        });
+    </script>
+</body>
+</html>

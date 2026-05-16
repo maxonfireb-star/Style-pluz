@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | STYLE PLUZ Family Salon Erode</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { spBlue: '#00B4EB', spPink: '#E73A85', spDark: '#111111', spLight: '#FAFAFA' },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'], luxury: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .glass-nav { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); }
+        .service-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border-bottom: 2px solid transparent; }
+        .service-card:hover { transform: translateY(-6px); border-bottom-color: var(--hover-border); box-shadow: 0 16px 32px rgba(0,0,0,0.06); }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-spLight text-gray-800 antialiased pt-24">
+
+    <!-- Navigation Bar -->
+    <nav class="glass-nav fixed w-full z-40 top-0 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex flex-col">
+                    <h1 class="font-luxury font-black text-2xl sm:text-3xl tracking-widest"><span class="text-spBlue">STYLE</span> <span class="text-spPink">PLUZ</span></h1>
+                    <p class="text-[10px] text-gray-400 font-bold tracking-[0.3em] uppercase mt-0.5">Family Salon</p>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="font-semibold text-gray-600 hover:text-spPink transition">Home</a>
+                    <a href="servicestyle.html" class="font-semibold text-spBlue border-b-2 border-spBlue pb-1 transition">Services</a>
+                    <a href="combos.html" class="font-semibold text-gray-600 hover:text-spPink transition">Exclusive Combos</a>
+                    <a href="tel:09578303805" class="bg-spDark text-white px-6 py-2.5 rounded-full font-bold hover:bg-gray-800 transition shadow-md"><i class="fa-solid fa-phone mr-2 text-xs"></i> Book Now</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-spDark text-2xl focus:outline-none"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="px-4 py-4 space-y-2 flex flex-col">
+                <a href="index.html" class="text-gray-600 px-4 py-3 rounded-xl font-semibold">Home</a>
+                <a href="servicestyle.html" class="bg-blue-50 text-spBlue px-4 py-3 rounded-xl font-semibold">Services</a>
+                <a href="combos.html" class="text-gray-600 px-4 py-3 rounded-xl font-semibold">Exclusive Combos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Frame Content -->
+    <header class="py-16 bg-white border-b border-gray-100 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <span class="text-spPink font-bold text-xs tracking-widest uppercase block mb-2">Boutique Service Array</span>
+            <h2 class="font-luxury font-bold text-4xl sm:text-5xl text-spDark mb-4">Our Service Treatments</h2>
+            <p class="text-gray-500 max-w-lg mx-auto text-sm sm:text-base font-light">From sleek layers to personalized groom configurations. Discover prices crafted to suit premium requirements smoothly.</p>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Workspace Component -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <!-- Controls: Filters and Search Input Workspace -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 bg-white p-4 rounded-3xl border border-gray-100 shadow-sm">
+            <div class="inline-flex bg-spLight p-1 rounded-2xl border border-gray-200 w-full md:w-auto overflow-x-auto">
+                <button onclick="applyServiceFilter('all')" class="filter-tab-btn active bg-spDark text-white px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition" data-target="all">All Treatments</button>
+                <button onclick="applyServiceFilter('mens')" class="filter-tab-btn text-gray-500 hover:text-spBlue px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition" data-target="mens">Mens Space</button>
+                <button onclick="applyServiceFilter('womens')" class="filter-tab-btn text-gray-500 hover:text-spPink px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition" data-target="womens">Womens Hub</button>
+            </div>
+            
+            <div class="relative w-full md:w-80">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                <input type="text" id="serviceSearch" oninput="runSearchEngine()" placeholder="Search treatment or package..." class="w-full bg-spLight border border-gray-200 pl-11 pr-4 py-3 rounded-2xl text-xs font-medium focus:outline-none focus:border-spDark transition">
+            </div>
+        </div>
+
+        <!-- Dynamic Grid Insertion Engine Container -->
+        <div id="servicesOutputGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Rendered via JS -->
+        </div>
+    </main>
+
+    <!-- Structural Service Detail Modal Frame -->
+    <div id="serviceDetailModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl transform scale-95 transition-transform duration-300" id="modalWindow">
+            <button onclick="closeTreatmentModal()" class="absolute top-5 right-5 text-gray-400 hover:text-spDark text-xl focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modalIconBox" class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6"></div>
+            <h3 id="modalTitle" class="font-luxury font-bold text-2xl text-spDark mb-1"></h3>
+            <span id="modalBadge" class="inline-block px-3 py-1 text-[10px] font-bold rounded-full uppercase tracking-widest mb-5"></span>
+            <p id="modalDescription" class="text-gray-600 text-sm leading-relaxed mb-6 font-light"></p>
+            <div class="space-y-3">
+                <a id="modalCallAction" href="tel:09578303805" class="w-full text-center block bg-spDark text-white py-3.5 rounded-xl font-bold hover:bg-neutral-800 transition text-sm shadow-md"><i class="fa-solid fa-phone mr-2 text-xs"></i> Connect to Book Appointment</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Execution Framework Engine -->
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => { document.getElementById('mobileMenu').classList.toggle('hidden'); });
+
+        const technicalCatalog = [
+            { id: 1, name: 'Hair Cut & Sculpting', category: 'mens', icon: 'fa-scissors', desc: 'Precision styling tailored seamlessly to unique face dynamics and specifications by expert barbers.', priceText: 'Premium Tier Pricing' },
+            { id: 2, name: 'Beard Grooming / Trim', category: 'mens', icon: 'fa-razor', desc: 'Boutique edge alignments, beard shaping, skin fade blends and classic hot steam moisturizations.', priceText: 'Sharp Line Configurations' },
+            { id: 3, name: 'Therapeutic Head Massage', category: 'mens', icon: 'fa-hands', desc: 'Intense micro-circulation stimulation patterns to completely release structural muscle stresses.', priceText: 'Relaxing Sessions' },
+            { id: 4, name: 'Deep Conditioning Hair Spa', category: 'mens', icon: 'fa-spa', desc: 'Follicular nutrition infusion formulas designed specifically to tackle dry texture layout settings.', priceText: 'Texture Restoration' },
+            { id: 5, name: 'Melanin Detan Packs', category: 'mens', icon: 'fa-sun', desc: 'Advanced hyperpigmentation lightener formulations to smooth out sun exposures across active zones.', priceText: 'Skincare Essentials' },
+            { id: 6, name: 'Signature Haircut / Layers', category: 'womens', icon: 'fa-scissors', desc: 'Custom structural cuts starting at just ₹300! Exceptional style mapping from classic bobs to long layers.', priceText: 'Starts from ₹300' },
+            { id: 7, name: 'Precision Eyebrow Threading', category: 'womens', icon: 'fa-eye', desc: 'High-definition brow shaping configuration mapped strictly to frame individual visual symmetries.', priceText: 'Express Precision Layout' },
+            { id: 8, name: 'Detan Therapy (Face & Neck)', category: 'womens', icon: 'fa-mask', desc: 'Hydrating botanic exfoliation packs to quickly strip sun-damaged layers off sensitive skin matrices.', priceText: 'Glow Configuration' },
+            { id: 9, name: 'Luxury Micro-Nourishing Spa', category: 'womens', icon: 'fa-spa', desc: 'Boutique restorative formulas yielding hyper-silky, completely frizz-free results across extensive lengths.', priceText: 'Deep Silk Treatment' },
+            { id: 10, name: 'Rejuvenating Foot Massage', category: 'womens', icon: 'fa-shoe-prints', desc: 'Reflexology therapy patterns dedicated to relieving strain across tired structural vectors.', priceText: 'Stress Neutralizer' },
+            { id: 11, name: 'Hygienic Organic Waxing', category: 'womens', icon: 'fa-leaf', desc: 'Super smooth premium wax layout configurations handling full arm or half leg structures safely.', priceText: 'Silky Skin Mapping' },
+            { id: 12, name: 'Pore Purifying Cleanup Facials', category: 'womens', icon: 'fa-pump-soap', desc: 'Deep comedone clearing and intense skin hydration to immediately optimize standard dermal radiance.', priceText: 'Instant Cellular Shine' }
+        ];
+
+        const targetGrid = document.getElementById('servicesOutputGrid');
+        let currentActiveFilter = 'all';
+
+        function renderEngine(dataset) {
+            targetGrid.innerHTML = '';
+            if(dataset.length === 0) {
+                targetGrid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 text-sm font-medium"><i class="fa-solid fa-circle-info block text-2xl mb-2 text-gray-300"></i> No matching treatments located in current track view.</div>`;
+                return;
+            }
+
+            dataset.forEach((item, index) => {
+                const colorMetrics = item.category === 'mens' ? '#00B4EB' : '#E73A85';
+                const pillBg = item.category === 'mens' ? 'bg-blue-50 text-spBlue' : 'bg-pink-50 text-spPink';
+                
+                const card = document.createElement('div');
+                card.className = "reveal service-card bg-white p-6 rounded-3xl border border-gray-100 cursor-pointer flex flex-col justify-between";
+                card.style.setProperty('--hover-border', colorMetrics);
+                card.style.animationDelay = `${index * 50}ms`;
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-xl" style="background-color: ${item.category === 'mens' ? 'rgba(0,180,235,0.08)' : 'rgba(231,58,133,0.08)'}; color: ${colorMetrics}">
+                                <i class="fa-solid ${item.icon}"></i>
+                            </div>
+                            <span class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${pillBg}">${item.category}</span>
+                        </div>
+                        <h4 class="font-luxury font-bold text-lg text-spDark mb-2 leading-snug">${item.name}</h4>
+                        <p class="text-gray-500 text-xs font-light leading-relaxed line-clamp-2 mb-4">${item.desc}</p>
+                    </div>
+                    <div class="pt-3 border-t border-gray-50 flex items-center justify-between text-[11px] font-bold text-gray-400">
+                        <span>${item.priceText}</span>
+                        <span class="text-spDark">Info <i class="fa-solid fa-arrow-right text-[9px] ml-0.5"></i></span>
+                    </div>
+                `;
+                card.onclick = () => launchTreatmentModal(item);
+                targetGrid.appendChild(card);
+            });
+
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+            }, 50);
+        }
+
+        function applyServiceFilter(tag) {
+            currentActiveFilter = tag;
+            document.querySelectorAll('.filter-tab-btn').forEach(b => {
+                b.className = "filter-tab-btn text-gray-500 hover:text-spDark px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition";
+            });
+            const selectedBtn = document.querySelector(`[data-target="${tag}"]`);
+            selectedBtn.className = "filter-tab-btn active bg-spDark text-white px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition";
+            
+            runSearchEngine();
+        }
+
+        function runSearchEngine() {
+            const query = document.getElementById('serviceSearch').value.toLowerCase();
+            const processSet = currentActiveFilter === 'all' ? technicalCatalog : technicalCatalog.filter(s => s.category === currentActiveFilter);
+            
+            const matchingResult = processSet.filter(item => 
+                item.name.toLowerCase().includes(query) || 
+                item.desc.toLowerCase().includes(query)
+            );
+            renderEngine(matchingResult);
+        }
+
+        const trModal = document.getElementById('serviceDetailModal');
+        const trWindow = document.getElementById('modalWindow');
+
+        function launchTreatmentModal(item) {
+            document.getElementById('modalTitle').innerText = item.name;
+            document.getElementById('modalDescription').innerText = item.desc;
+            
+            const badge = document.getElementById('modalBadge');
+            badge.innerText = `${item.category} segment • ${item.priceText}`;
+            badge.className = `inline-block px-3 py-1 text-[10px] font-bold rounded-full uppercase tracking-widest mb-5 ${item.category === 'mens' ? 'bg-blue-50 text-spBlue' : 'bg-pink-50 text-spPink'}`;
+            
+            const iconBox = document.getElementById('modalIconBox');
+            iconBox.innerHTML = `<i class="fa-solid ${item.icon}"></i>`;
+            iconBox.className = `w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6 ${item.category === 'mens' ? 'bg-blue-50 text-spBlue' : 'bg-pink-50 text-spPink'}`;
+
+            trModal.classList.remove('hidden');
+            setTimeout(() => { trModal.classList.add('opacity-100'); trWindow.classList.remove('scale-95'); }, 10);
+        }
+
+        function closeTreatmentModal() {
+            trModal.classList.remove('opacity-100'); trWindow.classList.add('scale-95');
+            setTimeout(() => trModal.classList.add('hidden'), 300);
+        }
+
+        trModal.addEventListener('click', (e) => { if(e.target === trModal) closeTreatmentModal(); });
+
+        window.addEventListener('DOMContentLoaded', () => { renderEngine(technicalCatalog); });
+    </script>
+</body>
+</html>
