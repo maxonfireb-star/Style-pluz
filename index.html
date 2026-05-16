@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STYLE PLUZ Family Salon in Kollampalayam, Erode. Premium Hair, Beauty, and Bridal Studio for Men and Women. Book your appointment via WhatsApp or Call today!">
+    <meta name="keywords" content="Style Pluz, Family Salon Erode, Kollampalayam Salon, Best Haircut Erode, Bridal Studio Erode, Beauty Parlour">
+    <title>STYLE PLUZ | Premium Family Salon & Bridal Studio</title>
+    
+    <!-- Tailwind CSS for Premium Responsive Design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Montserrat for Headings, Open Sans for Body -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spBlue: '#00B4EB',
+                        spPink: '#E73A85',
+                        spDark: '#1A1A1A',
+                        spLight: '#F9F9F9'
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Premium Styles */
+        body { scroll-behavior: smooth; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .text-gradient { background: linear-gradient(90deg, #00B4EB, #E73A85); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-bg {
+            /* Using a sleek dark gradient to mimic the premium dark branding of the exterior board, mixed with a subtle salon image placeholder */
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+        .page-section { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Floating Action Buttons */
+        .fab-container { position: fixed; bottom: 20px; right: 20px; z-index: 50; display: flex; flex-direction: column; gap: 10px; }
+        .fab { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s; }
+        .fab:hover { transform: scale(1.1); }
+        .fab-whatsapp { background-color: #25D366; }
+        .fab-call { background-color: #00B4EB; }
+
+        /* Service Cards & Modal */
+        .service-card { transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-bottom: 4px solid #E73A85; }
+        #serviceModal { transition: opacity 0.3s ease; }
+    </style>
+</head>
+<body class="bg-spLight text-gray-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-40 top-0 shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo mimicking the reception area -->
+                <div class="flex-shrink-0 cursor-pointer" onclick="navigate('home')">
+                    <h1 class="font-heading font-black text-3xl tracking-wider">
+                        <span class="text-spBlue">STYLE</span> <span class="text-spPink">PLUZ</span>
+                    </h1>
+                    <p class="text-xs text-gray-500 font-semibold tracking-widest uppercase mt-[-4px]">Family Salon</p>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button onclick="navigate('home')" class="font-heading font-semibold text-gray-700 hover:text-spBlue transition">Home</button>
+                    <button onclick="navigate('services')" class="font-heading font-semibold text-gray-700 hover:text-spPink transition">Services</button>
+                    <button onclick="navigate('combos')" class="font-heading font-semibold text-gray-700 hover:text-spBlue transition">Exclusive Combos</button>
+                    <button onclick="navigate('contact')" class="font-heading font-semibold text-gray-700 hover:text-spPink transition">Contact</button>
+                    <a href="tel:09578303805" class="bg-spDark text-white px-6 py-2 rounded-full font-bold hover:bg-gray-800 transition shadow-lg"><i class="fa-solid fa-phone mr-2"></i> Book Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-spDark focus:outline-none text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col shadow-lg">
+                <button onclick="navigate('home')" class="text-left px-3 py-3 font-semibold hover:bg-gray-50">Home</button>
+                <button onclick="navigate('services')" class="text-left px-3 py-3 font-semibold hover:bg-gray-50">Services</button>
+                <button onclick="navigate('combos')" class="text-left px-3 py-3 font-semibold hover:bg-gray-50">Combos</button>
+                <button onclick="navigate('contact')" class="text-left px-3 py-3 font-semibold hover:bg-gray-50">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="pt-20">
+
+        <!-- ================= HOME PAGE ================= -->
+        <div id="page-home" class="page-section active">
+            <!-- Hero Section -->
+            <section class="hero-bg h-[80vh] flex items-center justify-center text-center px-4 relative overflow-hidden">
+                <div class="z-10 max-w-4xl">
+                    <h2 class="text-white font-heading font-black text-5xl md:text-7xl mb-4 tracking-tight">
+                        Erode's Premium <br><span class="text-spPink">Beauty</span> & <span class="text-spBlue">Style</span> Hub
+                    </h2>
+                    <p class="text-gray-300 text-lg md:text-2xl mb-8 font-light max-w-2xl mx-auto">
+                        Experience world-class grooming in a clean, welcoming environment. Your premium look is just a call away.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button onclick="navigate('combos')" class="bg-spPink text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-600 transition shadow-lg transform hover:scale-105">View Combos</button>
+                        <a href="tel:09578303805" class="bg-white text-spDark px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-lg transform hover:scale-105"><i class="fa-solid fa-phone mr-2"></i> Call to Book</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interior Ambience Preview -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h3 class="font-heading font-bold text-3xl md:text-4xl text-spDark mb-2">Premium Ambience</h3>
+                    <div class="w-24 h-1 bg-spBlue mx-auto mb-12"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gray-100 h-64 rounded-xl shadow-inner flex items-center justify-center p-4 border border-gray-200">
+                            <div class="text-center">
+                                <i class="fa-solid fa-chair text-4xl text-spBlue mb-3"></i>
+                                <h4 class="font-bold text-xl">Modern Setup</h4>
+                                <p class="text-sm text-gray-500 mt-2">Plush seating with dedicated styling mirrors.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 h-64 rounded-xl shadow-inner flex items-center justify-center p-4 border border-gray-200">
+                            <div class="text-center">
+                                <i class="fa-solid fa-spa text-4xl text-spPink mb-3"></i>
+                                <h4 class="font-bold text-xl">Spa Stations</h4>
+                                <p class="text-sm text-gray-500 mt-2">Relaxing hair wash and foot spa zones.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 h-64 rounded-xl shadow-inner flex items-center justify-center p-4 border border-gray-200">
+                            <div class="text-center">
+                                <i class="fa-solid fa-spray-can-sparkles text-4xl text-spDark mb-3"></i>
+                                <h4 class="font-bold text-xl">Hygienic Environment</h4>
+                                <p class="text-sm text-gray-500 mt-2">Pristine, clean spaces highly rated by customers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Reviews Section -->
+            <section class="py-16 bg-spLight">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <h3 class="font-heading font-bold text-3xl text-spDark mb-8">What Our Clients Say</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                            <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
+                            <div class="flex justify-center text-yellow-400 mb-4 mt-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="italic text-gray-600">"People say the salon is clean and welcoming. Highly recommended for family grooming."</p>
+                            <p class="font-bold mt-4 text-spDark">- Local Guide</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                            <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
+                            <div class="flex justify-center text-yellow-400 mb-4 mt-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="italic text-gray-600">"Women's haircuts start at just ₹300, which is quite affordable for the premium service provided."</p>
+                            <p class="font-bold mt-4 text-spDark">- Happy Client</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= SERVICES PAGE ================= -->
+        <div id="page-services" class="page-section py-16 bg-white min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading font-black text-4xl md:text-5xl text-spDark mb-4">Our Services</h2>
+                    <p class="text-gray-500">Hover over a service for a quick view, click for details.</p>
+                </div>
+
+                <!-- Sort/Filter Bar -->
+                <div class="flex justify-center space-x-4 mb-10">
+                    <button class="filter-btn active bg-spDark text-white px-6 py-2 rounded-full font-semibold transition" data-filter="all">All</button>
+                    <button class="filter-btn bg-gray-200 text-gray-700 hover:bg-spBlue hover:text-white px-6 py-2 rounded-full font-semibold transition" data-filter="mens">Mens</button>
+                    <button class="filter-btn bg-gray-200 text-gray-700 hover:bg-spPink hover:text-white px-6 py-2 rounded-full font-semibold transition" data-filter="womens">Womens</button>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6" id="servicesGrid">
+                    <!-- Cards will be populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= COMBOS PAGE ================= -->
+        <div id="page-combos" class="page-section py-16 bg-spDark min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading font-black text-4xl md:text-5xl text-white mb-4">Signature Combos</h2>
+                    <div class="w-24 h-1 bg-spPink mx-auto mb-6"></div>
+                    <p class="text-gray-300">Unbeatable value. Premium treatments.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Womens Combos -->
+                    <div>
+                        <h3 class="font-heading font-bold text-3xl text-spPink mb-8 flex items-center border-b border-gray-700 pb-4"><i class="fa-solid fa-person-dress mr-4"></i> Womens</h3>
+                        <div class="space-y-6">
+                            <!-- Combo 1 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 border-l-4 border-spPink relative shadow-xl">
+                                <div class="absolute top-0 right-0 bg-spPink text-white font-bold py-2 px-6 rounded-bl-2xl rounded-tr-xl text-xl">₹500</div>
+                                <h4 class="text-white font-bold text-xl mb-4 w-3/4">COMBO 1</h4>
+                                <div class="grid grid-cols-2 gap-4 text-gray-300 text-sm">
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Detan Face & Neck</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Detan Feet Massage</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Eyebrow, Upperlip</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Eyebrow</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Chin, Forehead</div>
+                                </div>
+                            </div>
+                            <!-- Combo 2 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 border-l-4 border-spPink relative shadow-xl">
+                                <div class="absolute top-0 right-0 bg-spPink text-white font-bold py-2 px-6 rounded-bl-2xl rounded-tr-xl text-xl">₹800</div>
+                                <h4 class="text-white font-bold text-xl mb-4 w-3/4">COMBO 2</h4>
+                                <div class="grid grid-cols-2 gap-4 text-gray-300 text-sm">
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Head Massage, Detan</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Haircut</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Eyebrow, Upperlip</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Hair Spa</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Chin, Forehead</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Eyebrow</div>
+                                </div>
+                            </div>
+                            <!-- Combo 3 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 border-l-4 border-spPink relative shadow-xl">
+                                <div class="absolute top-0 right-0 bg-spPink text-white font-bold py-2 px-6 rounded-bl-2xl rounded-tr-xl text-xl">₹1000</div>
+                                <h4 class="text-white font-bold text-xl mb-4 w-3/4">COMBO 3</h4>
+                                <div class="grid grid-cols-2 gap-4 text-gray-300 text-sm">
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Cleanup, Detan</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Full Arms Wax</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Eyebrow</div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Half Leg Wax</div>
+                                    <div></div>
+                                    <div><i class="fa-solid fa-check text-spPink mr-2"></i> Cleanup</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mens Combos -->
+                    <div>
+                        <h3 class="font-heading font-bold text-3xl text-spBlue mb-8 flex items-center border-b border-gray-700 pb-4"><i class="fa-solid fa-person mr-4"></i> Mens</h3>
+                        <div class="space-y-6">
+                            <!-- Combo 1 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 border-l-4 border-spBlue relative shadow-xl">
+                                <div class="absolute top-0 right-0 bg-spBlue text-white font-bold py-2 px-6 rounded-bl-2xl rounded-tr-xl text-xl">₹500</div>
+                                <h4 class="text-white font-bold text-xl mb-4 w-3/4">COMBO 1</h4>
+                                <div class="grid grid-cols-2 gap-4 text-gray-300 text-sm">
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Hair Cut</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Hair Cut</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Beard Trim</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Beard Trim</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Detan</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Head Massage</div>
+                                </div>
+                            </div>
+                            <!-- Combo 2 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 border-l-4 border-spBlue relative shadow-xl">
+                                <div class="absolute top-0 right-0 bg-spBlue text-white font-bold py-2 px-6 rounded-bl-2xl rounded-tr-xl text-xl">₹800</div>
+                                <h4 class="text-white font-bold text-xl mb-4 w-3/4">COMBO 2</h4>
+                                <div class="grid grid-cols-2 gap-4 text-gray-300 text-sm">
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Hair Cut</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Hair Cut</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Beard Trim</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Beard Trim</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Cleanup</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Hair Spa</div>
+                                </div>
+                            </div>
+                            <!-- Combo 3 -->
+                            <div class="bg-gray-800 rounded-2xl p-6 border-l-4 border-spBlue relative shadow-xl">
+                                <div class="absolute top-0 right-0 bg-spBlue text-white font-bold py-2 px-6 rounded-bl-2xl rounded-tr-xl text-xl">₹1000</div>
+                                <h4 class="text-white font-bold text-xl mb-4 w-3/4">COMBO 3</h4>
+                                <div class="grid grid-cols-2 gap-4 text-gray-300 text-sm">
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Hair Cut</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Hair Cut</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Beard Trim</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Beard Trim</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Coloring, Detan</div>
+                                    <div><i class="fa-solid fa-check text-spBlue mr-2"></i> Cleanup, Detan</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CONTACT PAGE ================= -->
+        <div id="page-contact" class="page-section py-16 bg-white min-h-[80vh]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Contact Info -->
+                    <div>
+                        <h2 class="font-heading font-black text-4xl text-spDark mb-6">Visit Us Today</h2>
+                        <p class="text-gray-600 mb-8 text-lg">Don't want to wait? Skip the queue by calling us directly or messaging us on WhatsApp to book your slot.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-spLight p-4 rounded-full text-spBlue text-xl mr-4 border border-gray-200 shadow-sm"><i class="fa-solid fa-location-dot w-6 text-center"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-spDark">Address</h4>
+                                    <p class="text-gray-600 mt-1">11/6, PSK Complex, Near Lotus Hospital<br>Kollampalayam, Erode<br>Tamil Nadu 638002</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-spLight p-4 rounded-full text-spBlue text-xl mr-4 border border-gray-200 shadow-sm"><i class="fa-solid fa-clock w-6 text-center"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-spDark">Business Hours</h4>
+                                    <p class="text-gray-600 mt-1">Open Daily<br>Closes at 9:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-spLight p-4 rounded-full text-spBlue text-xl mr-4 border border-gray-200 shadow-sm"><i class="fa-solid fa-phone w-6 text-center"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-spDark">Direct Contact</h4>
+                                    <p class="text-gray-600 mt-1">095783 03805</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 flex space-x-4">
+                            <a href="tel:09578303805" class="flex-1 bg-spBlue text-white text-center py-4 rounded-xl font-bold shadow-lg hover:bg-blue-600 transition"><i class="fa-solid fa-phone mr-2"></i> Call Now</a>
+                            <a href="https://wa.me/919578303805" target="_blank" class="flex-1 bg-[#25D366] text-white text-center py-4 rounded-xl font-bold shadow-lg hover:bg-green-600 transition"><i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="h-96 bg-gray-200 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=STYLE%20PLUZ%20Family%20Salon,%2011/6,%20PSK%20Complex,%20Kollampalayam,%20Erode,%20Tamil%20Nadu%20638002&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-spDark text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="font-heading font-black text-2xl tracking-widest mb-4">
+                <span class="text-spBlue">STYLE</span> <span class="text-spPink">PLUZ</span>
+            </h2>
+            <p class="mb-6">Family Salon | Hair • Beauty • Bridal Studio</p>
+            <p class="text-sm">© 2026 Style Pluz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <a href="https://wa.me/919578303805" target="_blank" class="fab fab-whatsapp" title="WhatsApp Us">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:09578303805" class="fab fab-call" title="Call Us">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div id="serviceModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 relative shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-spDark text-2xl focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modalIcon" class="text-5xl mb-4 text-spBlue"></div>
+            <h3 id="modalTitle" class="font-heading font-bold text-2xl text-spDark mb-2"></h3>
+            <span id="modalCategory" class="inline-block px-3 py-1 bg-gray-100 text-xs font-bold rounded-full text-gray-600 mb-4 uppercase tracking-wider"></span>
+            <p id="modalDesc" class="text-gray-600 mb-6 leading-relaxed"></p>
+            <div class="flex flex-col gap-3">
+                <a href="tel:09578303805" class="w-full block text-center bg-spDark text-white py-3 rounded-xl font-bold hover:bg-gray-800 transition">Book via Call</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // --- Navigation Logic (Single Page App Feel) ---
+        function navigate(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            // Show targeted page
+            document.getElementById('page-' + pageId).classList.add('active');
+            window.scrollTo(0, 0);
+            
+            // Close mobile menu if open
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // --- Services Data & Filtering ---
+        const servicesData = [
+            { id: 1, name: 'Hair Cut', category: 'mens', icon: 'fa-scissors', desc: 'Precision styling tailored to your face shape and preferences by expert barbers.' },
+            { id: 2, name: 'Beard Trim', category: 'mens', icon: 'fa-razor', desc: 'Professional beard grooming, shaping, and lining for a sharp look.' },
+            { id: 3, name: 'Head Massage', category: 'mens', icon: 'fa-hands', desc: 'Relaxing head massage to relieve stress and improve blood circulation.' },
+            { id: 4, name: 'Hair Spa', category: 'mens', icon: 'fa-spa', desc: 'Deep conditioning treatment to strengthen roots and soften men\'s hair.' },
+            { id: 5, name: 'Detan', category: 'mens', icon: 'fa-sun', desc: 'Removal of sun tan to restore your natural skin tone.' },
+            { id: 6, name: 'Haircut', category: 'womens', icon: 'fa-scissors', desc: 'Starting at just ₹300. Trendy layers, bobs, or classic cuts to suit your style.' },
+            { id: 7, name: 'Eyebrow Threading', category: 'womens', icon: 'fa-eye', desc: 'Perfectly shaped brows to frame your face beautifully.' },
+            { id: 8, name: 'Detan Face & Neck', category: 'womens', icon: 'fa-mask', desc: 'Gentle detan packs to brighten skin and remove sun damage.' },
+            { id: 9, name: 'Hair Spa', category: 'womens', icon: 'fa-spa', desc: 'Luxurious deep nourishment for silky, frizz-free, and healthy hair.' },
+            { id: 10, name: 'Feet Massage', category: 'womens', icon: 'fa-shoe-prints', desc: 'Rejuvenating massage to relieve tired feet and improve circulation.' },
+            { id: 11, name: 'Waxing (Full Arms/Half Leg)', category: 'womens', icon: 'fa-leaf', desc: 'Smooth, hygienic hair removal for long-lasting soft skin.' },
+            { id: 12, name: 'Cleanup', category: 'womens', icon: 'fa-pump-soap', desc: 'Refreshing facial cleanup to unclog pores and leave skin glowing.' }
+        ];
+
+        const servicesGrid = document.getElementById('servicesGrid');
+
+        function renderServices(filter = 'all') {
+            servicesGrid.innerHTML = '';
+            servicesData.forEach(service => {
+                if(filter === 'all' || service.category === filter) {
+                    const colorClass = service.category === 'mens' ? 'text-spBlue border-spBlue' : 'text-spPink border-spPink';
+                    const bgHover = service.category === 'mens' ? 'hover:bg-blue-50' : 'hover:bg-pink-50';
+                    
+                    const card = document.createElement('div');
+                    card.className = \`service-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer text-center relative overflow-hidden group \${bgHover}\`;
+                    card.innerHTML = \`
+                        <!-- Hover pop-out hint -->
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white font-bold tracking-wider uppercase text-sm border-2 border-white px-4 py-2 rounded-full">Click for Info</span>
+                        </div>
+                        <i class="fa-solid \${service.icon} text-4xl mb-4 \${colorClass.split(' ')[0]}"></i>
+                        <h4 class="font-bold text-xl text-spDark">\${service.name}</h4>
+                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-widest mt-2 block">\${service.category}</span>
+                    \`;
+                    card.onclick = () => openModal(service);
+                    servicesGrid.appendChild(card);
+                }
+            });
+        }
+
+        // Filter Buttons Logic
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Reset active states
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('bg-spDark', 'text-white');
+                    b.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                // Set current active
+                const target = e.target;
+                target.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-spBlue', 'hover:bg-spPink');
+                target.classList.add('bg-spDark', 'text-white');
+                
+                renderServices(target.dataset.filter);
+            });
+        });
+
+        // Initial Render
+        renderServices('all');
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('serviceModal');
+        const modalContent = document.getElementById('modalContent');
+        
+        function openModal(service) {
+            document.getElementById('modalTitle').innerText = service.name;
+            document.getElementById('modalDesc').innerText = service.desc;
+            document.getElementById('modalCategory').innerText = service.category;
+            
+            const iconEl = document.getElementById('modalIcon');
+            iconEl.className = \`text-5xl mb-4 fa-solid \${service.icon}\`;
+            iconEl.classList.add(service.category === 'mens' ? 'text-spBlue' : 'text-spPink');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.remove('opacity-100');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+</html>
